@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+$break-point_sp: 767px;
+$font-color: #2d2d2d;
+$font-size_large: 24px;
+$font-size_middle: 16px;
+$font-size_small: 14px;
+$width_main-visual: 90vw;
+$width_content: 1000px;
+
+@mixin media-sp($bp) {
+    @media screen and (max-width: $bp){
+        @content;
+    }
+}
+
+html {
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 100%;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2 {
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: $font-color;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-visual {
+    padding-top: 50px;
+    max-width: $width_main-visual;
+    margin: 0 auto;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.header {
+
+    &__container {
+        display: flex;
+        margin: 32px auto;
+        max-width: $width_main-visual;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        margin-right: 50px;
+
+        img {
+            max-width: 110px;
+        }
+    }
+
+    &__global-nav {
+
+        ul {
+            display: flex;
+        }
+
+        li {
+            margin-right: 30px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.introduce {
+
+    section {
+        display: flex;
+        margin-bottom: 60px;
+
+        &:nth-child(2) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__image {
+        max-width: 50%;
+    }
+
+    &__text {
+        max-width: 50%;
+        padding: 65px;
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-size: $font-size_large;
+            margin-bottom: 4px;
+        }
+
+        h2 {
+            font-size: $font-size_middle;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: $font-size_middle;
+        }
+    }
+
+    @include media-sp($break-point_sp) {
+
+        &__container {
+            padding: 0 20px;
+        }
+
+        section {
+            display: block;
+        }
+
+        &__text {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        &__image {
+            max-width: 100%;
+        }
+    }
+}
+
+.footer {
+    height: 50px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__logo {
+        max-width: 110px;
+    }
+}
